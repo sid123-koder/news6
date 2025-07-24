@@ -1,0 +1,18 @@
+class AdManager {
+    static init() {
+        this.loadAdSettings();
+    }
+
+    static loadAdSettings() {
+        return JSON.parse(localStorage.getItem('adSettings')) || {
+            provider: 'none',
+            adsenseId: '',
+            topAdCode: '',
+            bottomAdCode: ''
+        };
+    }
+
+    static saveAdSettings(settings) {
+        localStorage.setItem('adSettings', JSON.stringify(settings));
+    }
+}
